@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 @Setter
 @Getter
 @Entity
@@ -26,13 +29,19 @@ public class Exchange extends BaseEntity {
     private Currency currency;
 
     // 환전 전 금액
-    private Long amount_in_krw;
+    private BigDecimal amountInKrw;
 
     // 환전 후 금액
-    private Long amount_after_exchange;
+    private BigDecimal amountAfterExchange;
 
     // 상태
     private String status;
 
     public Exchange() {}
+
+    public Exchange(BigDecimal amountInKrw, String status, BigDecimal exchangeRate) {
+       this.amountInKrw = amountInKrw;
+       this.amountAfterExchange = amountInKrw.divide(exchangeRate, 2, RoundingMode.HALF_EVEN);
+       this.status = status;
+    }
 }
