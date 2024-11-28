@@ -1,15 +1,13 @@
 package com.sparta.currency_user.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
+@Setter
 @Getter
 @Entity
+@Table(name = "exchange")
 public class Exchange extends BaseEntity {
 
     // Key 값
@@ -35,4 +33,6 @@ public class Exchange extends BaseEntity {
 
     // 상태
     private String status;
+
+    public Exchange() {}
 }
