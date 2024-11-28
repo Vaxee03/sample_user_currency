@@ -44,4 +44,7 @@ public class Exchange extends BaseEntity {
        this.amountAfterExchange = amountInKrw.divide(exchangeRate, 2, RoundingMode.HALF_EVEN);
        this.status = status;
     }
+
+    public void updateStatus(String cancelled) {
+    }
 }

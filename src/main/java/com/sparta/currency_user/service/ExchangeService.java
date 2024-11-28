@@ -5,6 +5,7 @@ import com.sparta.currency_user.entity.Currency;
 import com.sparta.currency_user.entity.Exchange;
 import com.sparta.currency_user.entity.User;
 import com.sparta.currency_user.repository.ExchangeRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,10 @@ public class ExchangeService {
 
         // ID로 DB에서 유저 조회
        return exchangeRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    @Transactional
+    public void cancelledExchange(Long id) {
+        findExchangeById(id).updateStatus("cancelled");
     }
 }
