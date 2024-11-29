@@ -4,12 +4,12 @@ import com.sparta.currency_user.dto.ExchangeResponseDto;
 import com.sparta.currency_user.entity.Currency;
 import com.sparta.currency_user.entity.Exchange;
 import com.sparta.currency_user.entity.User;
+import com.sparta.currency_user.error.errorcode.ErrorCode;
+import com.sparta.currency_user.error.exception.CustomException;
 import com.sparta.currency_user.repository.ExchangeRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 
@@ -48,8 +48,8 @@ public class ExchangeService {
 
     public Exchange findExchangeById(Long id) {
 
-        // ID로 DB에서 유저 조회
-       return exchangeRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        // ID로 조회
+       return exchangeRepository.findById(id).orElseThrow(() ->  new CustomException(ErrorCode.EXCHANGE_ID_NOT_FOUND));
     }
 
     @Transactional
