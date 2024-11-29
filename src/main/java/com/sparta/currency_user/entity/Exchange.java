@@ -45,6 +45,6 @@ public class Exchange extends BaseEntity {
        this.status = status;
     }
 
-    public void updateStatus(String cancelled) {
+    public void updateStatus(String status) {
     }
 }

@@ -18,7 +18,7 @@ public class User extends BaseEntity {
 
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Exchange> exchanges = new ArrayList<>();
 
     public User(String name, String email) {

@@ -23,7 +23,7 @@ public class Currency extends BaseEntity {
 
     private String symbol;
 
-    @OneToMany(mappedBy = "currency", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "currency")
     private List<Exchange> exchanges = new ArrayList<>();
 
     public Currency(String currencyName, BigDecimal exchangeRate, String symbol) {
