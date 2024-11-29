@@ -5,7 +5,6 @@ import com.sparta.currency_user.dto.ExchangeResponseDto;
 import com.sparta.currency_user.entity.Exchange;
 import com.sparta.currency_user.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +25,7 @@ public class ExchangeController {
     // 환전 요청 수행
     @PostMapping
     public ResponseEntity<ExchangeResponseDto> createExchange(@RequestBody ExchangeRequestDto Dto){
-        return ResponseEntity.ok(exchangeService.save(Dto.getUserId(),Dto.getCurrencyId(),Dto.getAmountInKrw()));
+        return ResponseEntity.ok(exchangeService.save(Dto.getUserId(), Dto.getCurrencyId(), Dto.getAmountInKrw()));
     }
 
     // 고객 ID를 입력하여 환전 조회

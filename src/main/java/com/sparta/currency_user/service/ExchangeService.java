@@ -43,7 +43,7 @@ public class ExchangeService {
         exchangeRepository.save(exchange);
 
         // Dto 값 반환
-        return new ExchangeResponseDto(exchange.getId(),exchange.getUser().getId(), exchange.getCurrency().getId(), exchange.getAmountInKrw(), exchange.getAmountAfterExchange(), exchange.getStatus());
+        return new ExchangeResponseDto(exchange.getId(), exchange.getUser().getId(), exchange.getCurrency().getId(), exchange.getAmountInKrw(), exchange.getAmountAfterExchange(), exchange.getStatus());
     }
 
     public Exchange findExchangeById(Long id) {

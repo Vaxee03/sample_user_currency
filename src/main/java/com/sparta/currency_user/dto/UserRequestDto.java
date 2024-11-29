@@ -10,8 +10,8 @@ public class UserRequestDto {
 
     public User toEntity() {
         return new User(
-                this.name,
-                this.email
+                this.name = name,
+                this.email = email
         );
     }
 }
