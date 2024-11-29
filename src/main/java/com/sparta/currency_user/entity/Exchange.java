@@ -7,7 +7,6 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-@Setter
 @Getter
 @Entity
 @Table(name = "exchange")
@@ -46,5 +45,12 @@ public class Exchange extends BaseEntity {
     }
 
     public void updateStatus(String status) {
+    }
+
+    public void setUser(User findUser) {
+
+    }
+
+    public void setCurrency(Currency findCurrency) {
     }
 }

@@ -28,7 +28,7 @@ public class ExchangeController {
         return ResponseEntity.ok(exchangeService.save(Dto.getUserId(), Dto.getCurrencyId(), Dto.getAmountInKrw()));
     }
 
-    // 고객 ID를 입력하여 환전 조회
+    // ID를 입력하여 환전 조회
     @GetMapping("/{id}")
     public ResponseEntity<Exchange> findExchange(@PathVariable Long id) {
         return ResponseEntity.ok(exchangeService.findExchangeById(id));
